@@ -1,0 +1,10 @@
+DESCRIPTION="BSD multiple-format archive library"
+HOMEPAGE="http://people.freebsd.org/~kientzle/libarchive/"
+SRC_URI="http://people.freebsd.org/~kientzle/libarchive/src/${P}.tar.gz"
+
+abi=2
+PKG_NAMES="${PN} ${PN}${abi} ${PN}-devel"
+PKG_HINTS="bin dll devel"
+PKG_CONTENTS[0]="--exclude=man3 usr/bin/*.exe usr/share/"
+PKG_CONTENTS[1]="usr/bin/cygarchive-${abi}.dll"
+PKG_CONTENTS[2]="usr/include/ usr/lib/ usr/share/man/man3/"
