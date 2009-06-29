@@ -1,5 +1,5 @@
 category: Archive
-requires: cygwin libbz2_1 zlib
+requires: libbz2_1 zlib
 sdesc: "Multiple-format archive library (utilities)"
 ldesc: "Libarchive is a programming library that can create and read 
 several different streaming archive formats, including most popular tar 

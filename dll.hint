@@ -1,5 +1,5 @@
 category: Archive
-requires: cygwin libbz2_1 zlib
+requires: libbz2_1 zlib
 external-source: libarchive
 sdesc: "Multiple-format archive library (runtime)"
 ldesc: "Libarchive is a programming library that can create and read 
