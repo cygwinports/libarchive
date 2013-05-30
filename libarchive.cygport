@@ -1,6 +1,6 @@
 NAME="libarchive"
 VERSION=3.1.2
-RELEASE=1
+RELEASE=2
 CATEGORY="Archive"
 SUMMARY="Multiple-format archive and compression library"
 DESCRIPTION="Libarchive is a programming library that can create and read
