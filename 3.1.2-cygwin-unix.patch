@@ -1,0 +1,64 @@
+--- origsrc/libarchive-3.1.2/configure.ac	2013-02-09 11:23:03.000000000 -0600
++++ src/libarchive-3.1.2/configure.ac	2016-04-08 12:54:29.326873500 -0500
+@@ -83,7 +83,6 @@ inc_windows_files=no
+ inc_cygwin_files=no
+ case "$host_os" in
+   *mingw* ) inc_windows_files=yes ;;
+-  *cygwin*) inc_cygwin_files=yes ;;
+ esac
+ AM_CONDITIONAL([INC_WINDOWS_FILES], [test $inc_windows_files = yes])
+ AM_CONDITIONAL([INC_CYGWIN_FILES], [test $inc_cygwin_files = yes])
+@@ -192,7 +191,7 @@ AM_CONDITIONAL([STATIC_BSDCPIO], [ test
+ 
+ # Set up defines needed before including any headers
+ case $host in
+-  *mingw* | *cygwin* )
++  *mingw*)
+   AC_DEFINE([_WIN32_WINNT], 0x0500, [Define to '0x0500' for Windows 2000 APIs.])
+   AC_DEFINE([WINVER], 0x0500, [Define to '0x0500' for Windows 2000 APIs.])
+   ;;
+@@ -248,7 +247,7 @@ AC_ARG_WITH([bz2lib],
+ if test "x$with_bz2lib" != "xno"; then
+   AC_CHECK_HEADERS([bzlib.h])
+   case "$host_os" in
+-    *mingw* | *cygwin*)
++    *mingw*)
+       dnl AC_CHECK_LIB cannot be used on the Windows port of libbz2, therefore
+ 	  dnl use AC_LINK_IFELSE.
+ 	  AC_MSG_CHECKING([for BZ2_bzDecompressInit in -lbz2])
+@@ -528,8 +527,6 @@ AC_CHECK_FUNCS([tzset unsetenv utime uti
+ AC_CHECK_FUNCS([wcrtomb wcscmp wcscpy wcslen wctomb wmemcmp wmemcpy])
+ AC_CHECK_FUNCS([_ctime64_s _fseeki64])
+ AC_CHECK_FUNCS([_get_timezone _localtime64_s _mkgmtime64])
+-# detects cygwin-1.7, as opposed to older versions
+-AC_CHECK_FUNCS([cygwin_conv_path])
+ 
+ # There are several variants of readdir_r around; we only
+ # accept the POSIX-compliant version.
+@@ -692,7 +689,7 @@ main(int argc, char **argv)
+ ])
+ 
+ case "$host_os" in
+-  *mingw* | *cygwin*)
++  *mingw*)
+ 	;;
+   *)
+ 	CRYPTO_CHECK(MD5, LIBC, md5)
+@@ -733,7 +730,7 @@ if test "x$with_openssl" != "xno"; then
+     AC_CHECK_HEADERS([openssl/evp.h])
+     saved_LIBS=$LIBS
+     case "$host_os" in
+-      *mingw* | *cygwin*)
++      *mingw*)
+         case "$host_cpu" in
+           x86_64)
+             AC_CHECK_LIB(eay64,main)
+@@ -776,7 +773,7 @@ if test "x$found_LIBMD" != "xyes"; then
+ fi
+ 
+ case "$host_os" in
+-  *mingw* | *cygwin*)
++  *mingw*)
+ 	CRYPTO_CHECK_WIN(MD5, CALG_MD5)
+ 	CRYPTO_CHECK_WIN(SHA1, CALG_SHA1)
+ 	CRYPTO_CHECK_WIN(SHA256, CALG_SHA_256)

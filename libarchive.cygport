@@ -1,6 +1,6 @@
 NAME="libarchive"
 VERSION=3.1.2
-RELEASE=3
+RELEASE=4
 CATEGORY="Archive"
 SUMMARY="Multiple-format archive and compression library"
 DESCRIPTION="Libarchive is a programming library that can create and read
@@ -16,7 +16,10 @@ SRC_DIR="libarchive-${VERSION}"
 PATCH_URI="
 	http://pkgs.fedoraproject.org/cgit/libarchive.git/plain/libarchive-3.1.3-CVE-2013-0211_read_buffer_overflow.patch
 	http://pkgs.fedoraproject.org/cgit/libarchive.git/plain/libarchive-3.1.2-testsuite.patch
+	http://pkgs.fedoraproject.org/cgit/libarchive.git/plain/libarchive-3.1.2-acl.patch?h=f24
 	http://pkgs.fedoraproject.org/cgit/libarchive.git/plain/libarchive-3.1.2-security-rhbz-1216891.patch
+	http://pkgs.fedoraproject.org/cgit/libarchive.git/plain/libarchive-3.1.2-mtree-fix.patch?h=f24
+	http://pkgs.fedoraproject.org/cgit/libarchive.git/plain/libarchive-3.1.2-CVE-2016-1541.patch?h=f24
 "
 
 PKG_NAMES="${NAME}13 ${NAME}-devel bsdtar bsdcpio"
